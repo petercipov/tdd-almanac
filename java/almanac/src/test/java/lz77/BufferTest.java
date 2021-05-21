@@ -14,6 +14,7 @@ class BufferTest {
         assertEquals(5, buffer.getLookAheadSize());
     }
 
+    @Test
     public void singleAppendWillResideAtTheEnd() {
         Buffer buffer = new Buffer(10, 5);
         buffer.append('a');
