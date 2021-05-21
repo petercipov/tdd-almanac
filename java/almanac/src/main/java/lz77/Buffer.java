@@ -6,7 +6,6 @@ public class Buffer {
     protected final char[] arr;
 
     public Buffer(int searchSize, int lookAheadSize) {
-
         this.searchSize = searchSize;
         this.lookAheadSize = lookAheadSize;
         this.arr = new char[searchSize+lookAheadSize];
@@ -21,6 +20,9 @@ public class Buffer {
     }
 
     public void append(char character) {
+        for (int i=1; i < arr.length; i++) {
+            arr[i-1] = arr[i];
+        }
         arr[arr.length - 1] = character;
     }
 }

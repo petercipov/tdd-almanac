@@ -21,4 +21,16 @@ class BufferTest {
 
         assertEquals('a', buffer.arr[14]);
     }
+
+    @Test
+    public void charactersInBufferAreShiftedWhenAppend() {
+        Buffer buffer = new Buffer(10, 5);
+        buffer.append('a');
+        buffer.append('b');
+        buffer.append('c');
+
+        assertEquals('a', buffer.arr[12]);
+        assertEquals('b', buffer.arr[13]);
+        assertEquals('c', buffer.arr[14]);
+    }
 }
