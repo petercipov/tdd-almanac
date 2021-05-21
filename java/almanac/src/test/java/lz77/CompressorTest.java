@@ -19,10 +19,17 @@ class CompressorTest {
 
     @Test
     public void compressionWillReturnEmptyListOfLengthDistancePairsIfRecevingEmptyStringAsInput () {
-
-
         List<LengthDistancePair> pairs = compressor.compress("");
-
         Assertions.assertTrue(pairs.isEmpty());
+    }
+
+    @Test
+    public void compressorShouldReturnSingleLengthDistancePairForSingleCharInput () {
+        List<LengthDistancePair> pairs = compressor.compress("a");
+        Assertions.assertEquals(1, pairs.size());
+        LengthDistancePair pair = pairs.get(0);
+        Assertions.assertEquals(0, pair.getOffset());
+        Assertions.assertEquals(0, pair.getLength());
+        Assertions.assertEquals('a', pair.getNext());
     }
 }
