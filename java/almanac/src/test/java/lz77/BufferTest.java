@@ -13,4 +13,11 @@ class BufferTest {
         assertEquals(10, buffer.getSearchSize());
         assertEquals(5, buffer.getLookAheadSize());
     }
+
+    public void singleAppendWillResideAtTheEnd() {
+        Buffer buffer = new Buffer(10, 5);
+        buffer.append('a');
+
+        assertEquals('a', buffer.arr[14]);
+    }
 }
