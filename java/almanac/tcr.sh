@@ -1,10 +1,3 @@
 #!/bin/bash
 
-mvn -Dtest=* compile test
-
-RESULT=$?
-if [ $RESULT -eq 0 ]; then
-  git commit -m ''
-else
-  echo "Failed"
-fi
+( (mvn -Dtest=* compile test) && git add . && git commit -m "T.C.R" ) || git checkout .
