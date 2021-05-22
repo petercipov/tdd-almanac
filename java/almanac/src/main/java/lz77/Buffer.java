@@ -3,7 +3,7 @@ package lz77;
 public class Buffer {
     private final int searchSize;
     private final int lookAheadSize;
-    protected final char[] arr;
+    private final char[] arr;
 
     public Buffer(int searchSize, int lookAheadSize) {
         this.searchSize = searchSize;
@@ -24,5 +24,9 @@ public class Buffer {
             arr[i-1] = arr[i];
         }
         arr[arr.length - 1] = character;
+    }
+
+    public char at(int i) {
+        return arr[i];
     }
 }

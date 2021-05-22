@@ -19,7 +19,7 @@ class BufferTest {
         Buffer buffer = new Buffer(10, 5);
         buffer.append('a');
 
-        assertEquals('a', buffer.arr[14]);
+        assertEquals('a', buffer.at(14));
     }
 
     @Test
@@ -29,8 +29,8 @@ class BufferTest {
         buffer.append('b');
         buffer.append('c');
 
-        assertEquals('a', buffer.arr[12]);
-        assertEquals('b', buffer.arr[13]);
-        assertEquals('c', buffer.arr[14]);
+        assertEquals('a', buffer.at(12));
+        assertEquals('b', buffer.at(13));
+        assertEquals('c', buffer.at(14));
     }
 }
