@@ -20,13 +20,17 @@ public class Buffer {
     }
 
     public void append(char character) {
-        for (int i=1; i < arr.length; i++) {
-            arr[i-1] = arr[i];
-        }
+        shift();
         arr[arr.length - 1] = character;
     }
 
     public char at(int i) {
         return arr[i];
+    }
+
+    public void shift() {
+        for (int i=1; i < arr.length; i++) {
+            arr[i-1] = arr[i];
+        }
     }
 }

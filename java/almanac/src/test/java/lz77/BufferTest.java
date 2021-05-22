@@ -33,4 +33,19 @@ class BufferTest {
         assertEquals('b', buffer.at(13));
         assertEquals('c', buffer.at(14));
     }
+
+    @Test
+    public void buffercanBeshiftedIfNoCharactersareLeft() {
+        Buffer buffer = new Buffer(10, 5);
+
+        buffer.append('a');
+        buffer.append('b');
+        buffer.append('c');
+
+        buffer.shift();
+
+        assertEquals('a', buffer.at(11));
+        assertEquals('b', buffer.at(12));
+        assertEquals('c', buffer.at(13));
+    }
 }
