@@ -29,10 +29,15 @@ public class Buffer {
         return arr[i];
     }
 
-    public void shift() {
-        for (int i=1; i < arr.length; i++) {
-            arr[i-1] = arr[i];
+    public boolean shift() {
+        if (lookAheadSize > 0) {
+            for (int i = 1; i < arr.length; i++) {
+                arr[i - 1] = arr[i];
+            }
+            lookAheadSize--;
+            return true;
+        } else {
+            return false;
         }
-        lookAheadSize--;
     }
 }

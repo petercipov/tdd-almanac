@@ -50,4 +50,21 @@ class BufferTest {
 
         assertEquals(4, buffer.getLookAheadSize());
     }
+
+    @Test
+    public void LBcanBeDecrementUntillItHasSomeSize() {
+        Buffer buffer = new Buffer(10, 5);
+
+        buffer.append('a');
+        buffer.append('b');
+        buffer.append('c');
+
+        int iterations = 0;
+        while(buffer.shift()) {
+            iterations++;
+        }
+
+        assertEquals(0, buffer.getLookAheadSize());
+        assertEquals(5, iterations);
+    }
 }
