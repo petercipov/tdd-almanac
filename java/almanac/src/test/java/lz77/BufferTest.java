@@ -35,7 +35,7 @@ class BufferTest {
     }
 
     @Test
-    public void buffercanBeshiftedIfNoCharactersareLeft() {
+    public void buffercanBeshiftedIfNoCharactersareLeftAndLBWillDecrement() {
         Buffer buffer = new Buffer(10, 5);
 
         buffer.append('a');
@@ -47,5 +47,7 @@ class BufferTest {
         assertEquals('a', buffer.at(11));
         assertEquals('b', buffer.at(12));
         assertEquals('c', buffer.at(13));
+
+        assertEquals(4, buffer.getLookAheadSize());
     }
 }

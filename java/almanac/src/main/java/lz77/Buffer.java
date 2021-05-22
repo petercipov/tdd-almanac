@@ -2,7 +2,7 @@ package lz77;
 
 public class Buffer {
     private final int searchSize;
-    private final int lookAheadSize;
+    private int lookAheadSize;
     private final char[] arr;
 
     public Buffer(int searchSize, int lookAheadSize) {
@@ -22,6 +22,7 @@ public class Buffer {
     public void append(char character) {
         shift();
         arr[arr.length - 1] = character;
+        lookAheadSize += 1;
     }
 
     public char at(int i) {
@@ -32,5 +33,6 @@ public class Buffer {
         for (int i=1; i < arr.length; i++) {
             arr[i-1] = arr[i];
         }
+        lookAheadSize--;
     }
 }
