@@ -52,7 +52,7 @@ class BufferTest {
     }
 
     @Test
-    public void LBcanBeDecrementUntillItHasSomeSize() {
+    public void LBcanBeDecrementByShiftingUntillItHasSomeSize() {
         Buffer buffer = new Buffer(10, 5);
 
         buffer.append('a');
