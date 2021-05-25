@@ -22,16 +22,14 @@ class BufferTest {
 
     @Test
     public void singleAppendWillResideAtTheEnd() {
-        buffer.append('a');
+        appendString("a");
 
         assertEquals('a', buffer.at(14));
     }
 
     @Test
     public void charactersInBufferAreShiftedWhenAppend() {
-        buffer.append('a');
-        buffer.append('b');
-        buffer.append('c');
+        appendString("abc");
 
         assertEquals('a', buffer.at(12));
         assertEquals('b', buffer.at(13));
@@ -40,9 +38,7 @@ class BufferTest {
 
     @Test
     public void buffercanBeshiftedIfNoCharactersareLeftAndLBWillDecrement() {
-        buffer.append('a');
-        buffer.append('b');
-        buffer.append('c');
+        appendString("abc");
 
         buffer.shift();
 
@@ -55,9 +51,7 @@ class BufferTest {
 
     @Test
     public void LBcanBeDecrementByShiftingUntillItHasSomeSize() {
-        buffer.append('a');
-        buffer.append('b');
-        buffer.append('c');
+        appendString("abc");
 
         int iterations = 0;
         while(buffer.shift()) {
@@ -66,5 +60,9 @@ class BufferTest {
 
         assertEquals(0, buffer.getLookAheadSize());
         assertEquals(5, iterations);
+    }
+
+    private void appendString(String value) {
+        value.chars().forEach(code -> buffer.append((char) code));
     }
 }
