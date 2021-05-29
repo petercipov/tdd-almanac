@@ -72,7 +72,7 @@ class BufferTest {
         assertEquals(0, prefix.getPosition());
     }
 
-    //@Test
+    @Test
     public void singleCharacterPrefix() {
         appendString("aabrac");
 

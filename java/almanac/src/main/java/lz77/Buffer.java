@@ -42,6 +42,17 @@ public class Buffer {
     }
 
     public Prefix longestPrefix() {
-        return new Prefix();
+        int length = 0;
+        int position = 0;
+
+        int sbi=getSearchSize()-1;
+        int lbi=getSearchSize();
+
+        if (arr[sbi] == arr[lbi]) {
+            length++;
+            position = getSearchSize() - sbi;
+        }
+
+        return new Prefix(length, position);
     }
 }
