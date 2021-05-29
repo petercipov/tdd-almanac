@@ -62,6 +62,15 @@ class BufferTest {
         assertEquals(5, iterations);
     }
 
+    @Test
+    public void emptyLongestprefix() {
+        appendString("abracx");
+
+        Prefix prefix = buffer.longestPrefix();
+
+        assertNull(prefix);
+    }
+
     private void appendString(String value) {
         value.chars().forEach(code -> buffer.append((char) code));
     }

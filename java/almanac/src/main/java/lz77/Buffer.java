@@ -40,4 +40,8 @@ public class Buffer {
             return false;
         }
     }
+
+    public Prefix longestPrefix() {
+        return null;
+    }
 }
