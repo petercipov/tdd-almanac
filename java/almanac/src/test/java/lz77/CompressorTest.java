@@ -12,7 +12,7 @@ class CompressorTest {
 
     @BeforeEach
     public void before () {
-        compressor = new Compressor();
+        compressor = new Compressor(new Buffer(8,6));
     }
 
     @Test
@@ -26,8 +26,8 @@ class CompressorTest {
         List<LengthDistancePair> pairs = compressor.compress("a");
         Assertions.assertEquals(1, pairs.size());
         LengthDistancePair pair = pairs.get(0);
-        Assertions.assertEquals(0, pair.getOffset());
-        Assertions.assertEquals(0, pair.getLength());
+        Assertions.assertEquals(0, pair.getPrefix().getOffset());
+        Assertions.assertEquals(0, pair.getPrefix().getLength());
         Assertions.assertEquals('a', pair.getNext());
     }
 }

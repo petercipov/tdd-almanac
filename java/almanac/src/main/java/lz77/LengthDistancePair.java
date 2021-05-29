@@ -3,17 +3,15 @@ package lz77;
 public class LengthDistancePair {
 
     private final char next;
+    private final Prefix prefix;
 
-    public LengthDistancePair(char next) {
+    public LengthDistancePair(char next, Prefix prefix) {
         this.next = next;
+        this.prefix = prefix;
     }
 
-    public int getOffset() {
-        return 0;
-    }
-
-    public int getLength() {
-        return 0;
+    public Prefix getPrefix() {
+        return prefix;
     }
 
     public char getNext() {

@@ -3,18 +3,18 @@ package lz77;
 public class Prefix {
 
     private final int length;
-    private final int position;
+    private final int offset;
 
-    public Prefix(int length, int position) {
+    public Prefix(int length, int offset) {
         this.length = length;
-        this.position = position;
+        this.offset = offset;
     }
 
     public int getLength() {
         return length;
     }
 
-    public int getPosition() {
-        return position;
+    public int getOffset() {
+        return offset;
     }
 }

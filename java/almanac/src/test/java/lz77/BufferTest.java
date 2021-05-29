@@ -69,7 +69,7 @@ class BufferTest {
         Prefix prefix = buffer.longestPrefix();
 
         assertEquals(0, prefix.getLength());
-        assertEquals(0, prefix.getPosition());
+        assertEquals(0, prefix.getOffset());
     }
 
     @Test
@@ -79,7 +79,7 @@ class BufferTest {
         Prefix prefix = buffer.longestPrefix();
 
         assertEquals(1, prefix.getLength());
-        assertEquals(1, prefix.getPosition());
+        assertEquals(1, prefix.getOffset());
 
     }
 
@@ -90,7 +90,7 @@ class BufferTest {
         Prefix prefix = buffer.longestPrefix();
 
         assertEquals(3, prefix.getLength());
-        assertEquals(3, prefix.getPosition());
+        assertEquals(3, prefix.getOffset());
     }
 
     @Test
@@ -100,7 +100,7 @@ class BufferTest {
         Prefix prefix = buffer.longestPrefix();
 
         assertEquals(5, prefix.getLength());
-        assertEquals(5, prefix.getPosition());
+        assertEquals(5, prefix.getOffset());
     }
 
     private void appendString(String value) {
