@@ -27,8 +27,10 @@ public class Compressor {
     private void prependBuffer(StringCharacterIterator iterator) {
         int lbSize = buffer.getLookAheadSize();
         for (int i=0; i< lbSize; i++) {
-            if(iterator.current() != CharacterIterator.DONE) {
-                buffer.append(iterator.current());
+            char current = iterator.current();
+            iterator.next();
+            if(current != CharacterIterator.DONE) {
+                buffer.append(current);
             } else {
                 buffer.shift();
             }
