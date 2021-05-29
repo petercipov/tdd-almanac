@@ -68,7 +68,19 @@ class BufferTest {
 
         Prefix prefix = buffer.longestPrefix();
 
-        assertNull(prefix);
+        assertEquals(0, prefix.getLength());
+        assertEquals(0, prefix.getPosition());
+    }
+
+    //@Test
+    public void singleCharacterPrefix() {
+        appendString("aabrac");
+
+        Prefix prefix = buffer.longestPrefix();
+
+        assertEquals(1, prefix.getLength());
+        assertEquals(1, prefix.getPosition());
+
     }
 
     private void appendString(String value) {

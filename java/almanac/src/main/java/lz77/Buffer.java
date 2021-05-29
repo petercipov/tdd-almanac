@@ -42,6 +42,6 @@ public class Buffer {
     }
 
     public Prefix longestPrefix() {
-        return null;
+        return new Prefix();
     }
 }
