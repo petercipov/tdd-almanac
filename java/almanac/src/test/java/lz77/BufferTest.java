@@ -83,6 +83,17 @@ class BufferTest {
 
     }
 
+    @Test
+    public void multiCharacterPrefix() {
+        appendString("aaaaaaac");
+
+        Prefix prefix = buffer.longestPrefix();
+
+        assertEquals(3, prefix.getLength());
+        assertEquals(3, prefix.getPosition());
+
+    }
+
     private void appendString(String value) {
         value.chars().forEach(code -> buffer.append((char) code));
     }

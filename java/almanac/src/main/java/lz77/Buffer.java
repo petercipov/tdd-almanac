@@ -46,11 +46,13 @@ public class Buffer {
         int position = 0;
 
         int sbi=getSearchSize()-1;
-        int lbi=getSearchSize();
-
-        if (arr[sbi] == arr[lbi]) {
-            length++;
-            position = getSearchSize() - sbi;
+        for (int lbi=getSearchSize(); lbi < getLookAheadSize()+getSearchSize(); lbi++) {
+            if (arr[sbi-length] == arr[lbi]) {
+                position = getSearchSize() - sbi + length;
+                length++;
+            } else {
+                break;
+            }
         }
 
         return new Prefix(length, position);
