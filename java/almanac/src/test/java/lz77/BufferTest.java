@@ -91,7 +91,16 @@ class BufferTest {
 
         assertEquals(3, prefix.getLength());
         assertEquals(3, prefix.getPosition());
+    }
 
+    @Test
+    public void multiCharacterStartingLaterPrefix() {
+        appendString("abcdeabcde");
+
+        Prefix prefix = buffer.longestPrefix();
+
+        assertEquals(5, prefix.getLength());
+        assertEquals(5, prefix.getPosition());
     }
 
     private void appendString(String value) {
