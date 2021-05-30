@@ -34,6 +34,7 @@ public class Buffer {
             for (int i = 1; i < arr.length; i++) {
                 arr[i - 1] = arr[i];
             }
+            arr[arr.length-1] = '\uFFFF';
             lookAheadSize--;
             return true;
         } else {

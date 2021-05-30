@@ -44,4 +44,13 @@ class CompressorTest {
             Assertions.assertEquals(0, pairs.get(i).getPrefix().getOffset());
         }
     }
+
+    @Test
+    public void prefixLongerThanOneShouldreturnNexCharaterShifterdByLebgth() {
+        String input = "ababab";
+        Assertions.assertEquals(6, input.length());
+        List<LengthDistancePair> pairs = compressor.compress(input);
+
+        Assertions.assertEquals(4, pairs.size());
+    }
 }

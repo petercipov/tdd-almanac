@@ -24,6 +24,9 @@ public class Compressor {
 
             while (buffer.getLookAheadSize() != 0) {
                 Prefix prefix = buffer.longestPrefix();
+                for (int i=0; i < prefix.getLength(); i++) {
+                    buffer.shift();
+                }
                 pairs.add(new LengthDistancePair(buffer.at(buffer.getSearchSize()), prefix));
                 buffer.shift();
             }
