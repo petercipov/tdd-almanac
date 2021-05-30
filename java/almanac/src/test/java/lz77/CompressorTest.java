@@ -26,8 +26,8 @@ class CompressorTest {
         List<LengthDistancePair> pairs = compressor.compress("a");
         Assertions.assertEquals(1, pairs.size());
         LengthDistancePair pair = pairs.get(0);
-        Assertions.assertEquals(0, pair.getPrefix().getOffset());
-        Assertions.assertEquals(0, pair.getPrefix().getLength());
+        Assertions.assertEquals(0, pair.getOffset());
+        Assertions.assertEquals(0, pair.getLength());
         Assertions.assertEquals('a', pair.getNext());
     }
 
@@ -40,8 +40,8 @@ class CompressorTest {
         Assertions.assertEquals(6, pairs.size());
         for (int i=0; i < input.length(); i++) {
             Assertions.assertEquals(input.charAt(i), pairs.get(i).getNext());
-            Assertions.assertEquals(0, pairs.get(i).getPrefix().getLength());
-            Assertions.assertEquals(0, pairs.get(i).getPrefix().getOffset());
+            Assertions.assertEquals(0, pairs.get(i).getLength());
+            Assertions.assertEquals(0, pairs.get(i).getOffset());
         }
     }
 
