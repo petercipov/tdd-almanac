@@ -22,12 +22,26 @@ class CompressorTest {
     }
 
     @Test
-    public void compressorShouldReturnSingleLengthDistancePairForSingleCharInput () {
+    public void compressorShouldReturnStaritngLengthDistancePairForSingleCharInput () {
         List<LengthDistancePair> pairs = compressor.compress("a");
         Assertions.assertEquals(1, pairs.size());
         LengthDistancePair pair = pairs.get(0);
         Assertions.assertEquals(0, pair.getPrefix().getOffset());
         Assertions.assertEquals(0, pair.getPrefix().getLength());
         Assertions.assertEquals('a', pair.getNext());
+    }
+
+    @Test
+    public void compressorShouldReturnUptoLBSizeStartingLengthDistancePairs() {
+        String input = "abcdef";
+        Assertions.assertEquals(6, input.length());
+        List<LengthDistancePair> pairs = compressor.compress(input);
+
+        Assertions.assertEquals(6, pairs.size());
+        for (int i=0; i < input.length(); i++) {
+            Assertions.assertEquals(input.charAt(i), pairs.get(i).getNext());
+            Assertions.assertEquals(0, pairs.get(i).getPrefix().getLength());
+            Assertions.assertEquals(0, pairs.get(i).getPrefix().getOffset());
+        }
     }
 }

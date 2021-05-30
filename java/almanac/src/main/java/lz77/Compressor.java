@@ -2,6 +2,7 @@ package lz77;
 
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Compressor {
@@ -18,9 +19,16 @@ public class Compressor {
             return List.of();
         } else {
             prependBuffer(iterator);
-            Prefix prefix = buffer.longestPrefix();
 
-            return List.of(new LengthDistancePair(input.charAt(0), prefix));
+            LinkedList<LengthDistancePair> pairs = new LinkedList<>();
+
+            while (buffer.getLookAheadSize() != 0) {
+                Prefix prefix = buffer.longestPrefix();
+                pairs.add(new LengthDistancePair(buffer.at(buffer.getSearchSize()), prefix));
+                buffer.shift();
+            }
+
+            return pairs;
         }
     }
 
