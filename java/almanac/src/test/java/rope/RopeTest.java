@@ -31,4 +31,11 @@ public class RopeTest {
         rope.insert("other");
         assertEquals(9, rope.size());
     }
+
+    @Test
+    public void multiInsertWillPrependValues() {
+        rope.insert("text");
+        rope.insert("other");
+        assertEquals("othertext", rope.toString());
+    }
 }
