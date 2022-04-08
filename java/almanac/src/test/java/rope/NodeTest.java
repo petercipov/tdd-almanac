@@ -53,4 +53,19 @@ public class NodeTest {
                         Node.connection(Node.leaf("left"), Node.leaf("right")));
         assertEquals(9, node.weight());
     }
+
+    @Test
+    public void wikiExampleShouldMatch() {
+        //https://en.wikipedia.org/wiki/Rope_(data_structure)
+        var node = Node.connection(
+        Node.connection(
+        Node.connection(Node.leaf("Hello_"), Node.leaf("my_")),
+        Node.connection(
+            Node.connection(Node.leaf("na"), Node.leaf("me_i")),
+            Node.connection(Node.leaf("s"), Node.leaf("_Simon")))),
+        null)
+        ;
+
+        assertEquals(22, node.weight());
+    }
 }
