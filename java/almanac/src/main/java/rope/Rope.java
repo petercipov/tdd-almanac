@@ -1,7 +1,13 @@
 package rope;
 
 public class Rope {
+    private int size = 0;
+
     public int size() {
-        return 0;
+        return size;
+    }
+
+    public void insert(String value) {
+        size = value.length();
     }
 }
