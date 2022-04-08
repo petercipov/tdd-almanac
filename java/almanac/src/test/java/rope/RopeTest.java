@@ -24,4 +24,11 @@ public class RopeTest {
         rope.insert("text");
         assertEquals(4, rope.size());
     }
+
+    @Test
+    public void multiInsertWillAddToSize() {
+        rope.insert("text");
+        rope.insert("other");
+        assertEquals(9, rope.size());
+    }
 }

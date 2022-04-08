@@ -8,6 +8,6 @@ public class Rope {
     }
 
     public void insert(String value) {
-        size = value.length();
+        size += value.length();
     }
 }
