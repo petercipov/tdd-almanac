@@ -12,6 +12,7 @@ public class NodeTest {
         assertEquals(0, node.size());
     }
 
+    @Test
     public void leafNodeIsSizeOfValue() {
         var node = Node.leaf("some");
         assertEquals(4, node.size());
