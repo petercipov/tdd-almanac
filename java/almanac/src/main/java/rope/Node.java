@@ -16,7 +16,7 @@ public class Node {
         var node =  new Node();
         node.left = left;
         node.right = right;
-        node.weight = left.weight();
+        node.weight = left.computeSubtreeWeight();
         return node;
     }
 
@@ -26,5 +26,25 @@ public class Node {
 
     public int weight() {
         return this.weight;
+    }
+
+    private int computeSubtreeWeight() {
+        if (isLeaf()) {
+            return weight;
+        } else {
+            int w = 0;
+            if (left != null) {
+                w += this.left.computeSubtreeWeight();
+            }
+            if (right != null) {
+                w += this.right.computeSubtreeWeight();
+            }
+
+            return w;
+        }
+    }
+
+    private boolean isLeaf() {
+        return left == null && right == null;
     }
 }

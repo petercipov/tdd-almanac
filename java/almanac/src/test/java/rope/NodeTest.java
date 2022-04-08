@@ -35,4 +35,13 @@ public class NodeTest {
         var node = Node.connection(Node.leaf("left"), Node.leaf("right"));
         assertEquals(4, node.weight());
     }
+
+    @Test
+    public void connectionNodeHasWeightOfAllLefLeafNodes() {
+        var node =
+                Node.connection(
+                    Node.connection(Node.leaf("left"), Node.leaf("right")),
+                    null);
+        assertEquals(9, node.weight());
+    }
 }
