@@ -19,6 +19,7 @@ public class RopeTest {
         assertEquals(0, rope.size());
     }
 
+    @Test
     public void insertingAtBeginningWillIncreaseSize() {
         rope.insert("text");
         assertEquals(4, rope.size());
