@@ -17,4 +17,10 @@ public class NodeTest {
         var node = Node.leaf("some");
         assertEquals(4, node.size());
     }
+
+    @Test
+    public void leafNodeIsWeightOfValue() {
+        var node = Node.leaf("some");
+        assertEquals(4, node.weight());
+    }
 }
