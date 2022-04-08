@@ -29,4 +29,10 @@ public class NodeTest {
         var node = Node.connection(Node.leaf("left"), Node.leaf("right"));
         assertEquals(0, node.size());
     }
+
+    @Test
+    public void connectionNodeHasWeightOfLeftSubNode() {
+        var node = Node.connection(Node.leaf("left"), Node.leaf("right"));
+        assertEquals(4, node.weight());
+    }
 }

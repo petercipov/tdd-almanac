@@ -16,6 +16,7 @@ public class Node {
         var node =  new Node();
         node.left = left;
         node.right = right;
+        node.weight = left.weight();
         return node;
     }
 
