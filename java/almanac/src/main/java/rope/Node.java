@@ -3,12 +3,19 @@ public class Node {
     private int weight;
     private String value;
     private Node left;
-    private Node Right;
+    private Node right;
 
     public static Node leaf(String some) {
         var node =  new Node();
         node.value = some;
         node.weight = some.length();
+        return node;
+    }
+
+    public static Node connection(Node left, Node right) {
+        var node =  new Node();
+        node.left = left;
+        node.right = right;
         return node;
     }
 

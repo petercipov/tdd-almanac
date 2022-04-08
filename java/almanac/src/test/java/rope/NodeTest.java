@@ -23,4 +23,10 @@ public class NodeTest {
         var node = Node.leaf("some");
         assertEquals(4, node.weight());
     }
+
+    @Test
+    public void connectionNodeHasEmptySize() {
+        var node = Node.connection(Node.leaf("left"), Node.leaf("right"));
+        assertEquals(0, node.size());
+    }
 }
