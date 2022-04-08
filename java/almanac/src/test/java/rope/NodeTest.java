@@ -8,7 +8,12 @@ public class NodeTest {
 
     @Test
     public void emptyNodeHasZeroSize() {
-        Node node = new Node();
+        var node = new Node();
         assertEquals(0, node.size());
+    }
+
+    public void leafNodeIsSizeOfValue() {
+        var node = Node.leaf("some");
+        assertEquals(4, node.size());
     }
 }

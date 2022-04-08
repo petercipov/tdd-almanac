@@ -5,7 +5,13 @@ public class Node {
     private Node left;
     private Node Right;
 
+    public static Node leaf(String some) {
+        var node =  new Node();
+        node.value = some;
+        return node;
+    }
+
     public int size() {
-        return 0;
+        return value == null ? 0 : value.length();
     }
 }
