@@ -44,4 +44,13 @@ public class NodeTest {
                     null);
         assertEquals(9, node.weight());
     }
+
+    @Test
+    public void connectionNodeDoesNotCountInRightNodes() {
+        var node =
+                Node.connection(
+                        Node.connection(Node.leaf("left"), Node.leaf("right")),
+                        Node.connection(Node.leaf("left"), Node.leaf("right")));
+        assertEquals(9, node.weight());
+    }
 }
